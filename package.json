@@ -40,7 +40,6 @@
     "grunt-contrib-jshint": "~0.11.2",
     "grunt-contrib-nodeunit": "~0.4.1",
     "js-yaml": "^3.3.1",
-    "libyaml": "~0.2.5",
     "nodeunit": "~0.9.1"
   }
 }
