@@ -1,6 +1,6 @@
 
 var grunt = require('grunt');
-var yaml = require('libyaml');
+var yaml = require('js-yaml');
 var hashFile = require('../tasks/lib/common').hashFile;
 var s3 = require('../tasks/lib/s3').init(grunt);
 
@@ -54,7 +54,7 @@ module.exports = {
 
         s3.upload(src, 'b.txt', headerConfig)
           .always(function () {
-            var meta = yaml.parse(grunt.file.read(dest));
+            var meta = yaml.safeLoad(grunt.file.read(dest))
             test.ok(meta[0][':content_type'] === new Buffer('<3').toString('base64'), 'Headers are preserved.');
             cb(null);
           });
